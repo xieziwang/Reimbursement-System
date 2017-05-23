@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="Viewport" content="width=device-width, initial-scale=1">
+    <title>Manage Your Profile</title>
+
+    <!--jquery-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <!--angular js-->
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-route.min.js"></script>
+
+    <!--bootstrap-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <!-- Bootstrap Date-Picker Plugin -->
+    <!-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/> -->
+
+    <!-- high charts -->
+    <script type="text/javascript" src="https://code.highcharts.com/highcharts.js"></script>
+    <!-- <script src="https://code.highcharts.com/modules/exporting.js"></script> -->
+
+    <!--social network icons-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!--customized style sheet-->
+    <link rel="stylesheet" href="css/style.css">
+  </head>
+  <body id="profile_body">
+    <header id="header">
+        <!--navigation bar with logo-->
+        <nav id="nav_top" style="opacity:1">
+            <div id="logo_container">
+                <img src="img/logo.svg " alt="logo " id="logo_left">
+            </div>
+            <button id="burgerBtn"><span class="glyphicon glyphicon-menu-hamburger"></span></button>
+            <ul class="text-center" id="menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <!-- <li><button id="signInBtn" data-toggle="modal" data-target="#myModal">Sign In</button></li> -->
+                <li id="after_sign" class="dropdown">
+                  <a id="welcome" class="dropdown-toggle" data-toggle="dropdown">Welcome, <em></em></a>
+                  <ul class="dropdown-menu">
+                    <li><a href="profile.html">My Profile</a></li>
+                    <li><button id="signOutBtn" class="text-left">Sign Out</button></li>
+                  </ul>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <main id="profile_main" ng-app="myApp"  ng-controller="mainCtr">
+      <section class="row container" id="ngRoute">
+        <h2 class="text-center" style="margin-bottom:0px; padding-bottom:15px;border-bottom:1px solid rgba(0,0,0,0.2)">USER INFORMATION</h2>
+        <div class="col-md-2 col-sm-12" style="padding:0px; margin-top:0px">
+          <ul id="leftBar">
+            <li><a href="#/user" class="text-center" ng-class="{active: $route.current.activetab == 'user'}">Your Profile</a></li>
+            <li><a href="#/records" class="text-center" ng-class="{active: $route.current.activetab == 'records'}">Your Records</a></li>
+            <li><a id="dept_records" class="text-center" href="#/deptRecords" ng-class="{active: $route.current.activetab == 'deptRecords'}">Dept Records</a></li>
+          </ul>
+        </div>
+        <div class="col-md-10 col-sm-12" id="content" style="border-left:1px solid rgba(0,0,0,0.2)" ng-view></div>
+      </section>
+
+    </main>
+    <section id="about" class="row">
+        <div id="contact" class="col-sm-6 col-xs-12">
+            <p class="em">Contact Us</p>
+            <p class="media">(732) 906-7806<br>info@sitacorp.com<br>347 Elizabeth Ave, Ste 200,
+Somerset, NJ 08873-0037, USA.
+            </p>
+        </div>
+        <div id="follow" class="col-sm-3 col-xs-6">
+            <p class="em">Follow Us</p>
+            <ul class="social">
+              <li><a class="media" href="https://www.facebook.com/squarespace"><i class="fa fa-facebook-square" style="margin-right: 5px;"></i>Facebook</a></li>
+              <li><a class="media" href="https://twitter.com/squarespace"><i class="fa fa-twitter-square" style="margin-right: 5px;"></i>Twitter</a></li>
+
+              <li><a class="media" href="https://www.instagram.com/squarespace/"><i class="fa fa-instagram" style="margin-right: 5px;"></i>Instagram</a></li>
+              <li><a class="media" href="https://blog.squarespace.com/"><i class="fa fa-pinterest-square" style="margin-right: 5px;"></i>Pinterest</a></li>
+            </ul>
+        </div>
+        <div class="col-sm-3 col-xs-6">
+          <p class="em">Community</p>
+          <ul class="social">
+            <li><a class="media">Help & Support</a></li>
+            <li><a class="media">Answers</a></li>
+            <li><a class="media">Workshops & Webinars</a></li>
+            <li><a class="media">Specialists</a></li>
+          </ul>
+        </div>
+    </section>
+
+    <footer class="text-center">
+        copyright @ Jingying Wang 2017
+    </footer>
+    <script src="js/profile.js"></script>
+    <script src="js/angularRouter.js"></script>
+  </body>
+</html>
